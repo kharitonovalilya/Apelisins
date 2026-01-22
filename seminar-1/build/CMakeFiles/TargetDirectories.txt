@@ -1,0 +1,4 @@
+/home/lilya/projects/Apelsins/seminar-1/build/CMakeFiles/sub_lib.dir
+/home/lilya/projects/Apelsins/seminar-1/build/CMakeFiles/seminar-1.dir
+/home/lilya/projects/Apelsins/seminar-1/build/CMakeFiles/edit_cache.dir
+/home/lilya/projects/Apelsins/seminar-1/build/CMakeFiles/rebuild_cache.dir

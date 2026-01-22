@@ -11,5 +11,5 @@ int main() {
   std::cin >> first_number;
   std::cin >> second_number;
 
-  std::cout << "Your result: ", sub(first_number, second_number);
+  std::cout << sub(first_number, second_number);
 }
