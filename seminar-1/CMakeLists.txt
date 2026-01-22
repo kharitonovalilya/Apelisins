@@ -8,7 +8,7 @@ endif()
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Вариант 1: Используем FetchContent (удалите локальные catch2 файлы)
+# --- Fetch Catch2 Dependency ---
 include(FetchContent)
 FetchContent_Declare(
     Catch2
@@ -20,7 +20,7 @@ FetchContent_MakeAvailable(Catch2)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -Werror=return-type")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
-# --- Создание библиотеки ---
+# --- Create lib ---
 add_library(sub_lib 
     src/sub.cpp
 )
@@ -30,18 +30,15 @@ target_include_directories(sub_lib
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# --- Основное приложение ---
+# --- Main Application ---
 add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE sub_lib)
 
-# --- Тестирование ---
+# --- Testing ---
 enable_testing()
 
 add_executable(unit_tests tests/test_sub.cpp)
 target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-# ПРАВИЛЬНАЯ СТРОКА: линкуем с sub_lib и Catch2
 target_link_libraries(unit_tests PRIVATE sub_lib Catch2::Catch2WithMain)
 
-# Регистрируем тест
 add_test(NAME sub-tests COMMAND unit_tests)
