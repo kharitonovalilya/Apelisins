@@ -109,6 +109,7 @@ Invalid input
 ## Unit Testing
 Run the tests:
 ```bash
-ninja test
+ninja -C build test
 ```
 All tests use the Catch2 testing framework and are automatically executed when you run the test target.
+
