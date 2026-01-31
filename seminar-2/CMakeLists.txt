@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(seminar-1)
+project(seminar-2)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
@@ -21,28 +21,16 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -Werror=return-type")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
 # --- Create lib ---
-add_library(sub_lib 
-    src/sub.cpp
+add_library(seminar2_lib 
+    src/calculate.cpp
+    src/input_checkers.cpp
 )
 
-target_include_directories(sub_lib
+target_include_directories(seminar2_lib
   PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 # --- Main Application ---
 add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE sub_lib)
-
-# --- Testing ---
-enable_testing()
-
-add_executable(unit_tests tests/test_sub.cpp)
-target_link_libraries(unit_tests PRIVATE sub_lib Catch2::Catch2WithMain)
-target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-# ПРАВИЛЬНАЯ СТРОКА: линкуем с sub_lib и Catch2
-target_link_libraries(unit_tests PRIVATE sub_lib Catch2::Catch2WithMain)
-
-# Регистрируем тест
-add_test(NAME sub-tests COMMAND unit_tests)
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE seminar2_lib)
