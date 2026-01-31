@@ -5,17 +5,22 @@ This project implements a mathematical expression calculator. The program reads 
 ## Project Structure
 ```
 seminar-2/
-├── CMakeLists.txt              # CMake configuration file
-├── Readme.md                   # About our project (this file)
-├── include/                    # Header files directory
-│   ├── calculate.h             # Expression calculation interface
-│   └── input_checkers.h        # Input validation interface
-├── src/                        # Source files directory
-│   ├── main.cpp                # Main application entry point
-│   ├── calculate.cpp           # Expression calculation implementation
-│   └── input_checkers.cpp      # Input validation implementation 
-└── tests/                      # Test files directore
-    
+├── CMakeLists.txt                # CMake configuration file
+├── Readme.md                     # About our project (this file)
+├── include/                      # Header files directory
+│   ├── calculate.h               # Expression calculation interface
+│   └── input_checkers.h          # Input validation interface
+├── src/                          # Source files directory
+│   ├── main.cpp                  # Main application entry point
+│   ├── calculate.cpp             # Expression calculation implementation
+│   └── input_checkers.cpp        # Input validation implementation 
+└── tests/                        # Test files directore
+    ├── test_main.cpp             # Catch2 test runner entry point
+    ├── test_check_symbols.cpp    # Tests for symbol validation
+    ├── test_check_operations.cpp # Tests for operation sequence validation
+    ├── test_esc_erase.cpp        # Tests for whitespace removal function
+    ├── test_calculate.cpp        # Tests for calculation functions
+    └── test_parser.cpp           # Tests for expression parsing
 ```
 
 ## Requirements
@@ -106,6 +111,7 @@ Invalid input
 
 Invalid input
 ```
+
 
 
 
