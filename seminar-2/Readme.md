@@ -24,7 +24,7 @@ seminar-2/
 - Git
 - ninja
 
-## Build
+## Build & Run
 ### Configure the build system:
 ```bash
 cmake -S . -B build -G Ninja
@@ -106,5 +106,6 @@ Invalid input
 
 Invalid input
 ```
+
 
 
